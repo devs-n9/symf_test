@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>New Products</h2>
+    <a href="{{ path('product') }}">to list</a>
+    <br>
+    <br>
+    <form action="{{ path('newproduct') }}" method="post">
+        <input type="text" name="name" placeholder="Enter Name"><br>
+        <select name="category">
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="create" >
+    </form>
+{% endblock %}
